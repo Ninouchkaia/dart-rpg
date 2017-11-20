@@ -1,0 +1,14 @@
+<h2>My Abilities</h2>
+<ul class="abilities">
+    <li *ngFor="let ability of abilities"
+        [class.selected]="ability === selectedAbility"
+        (click)="onSelect(ability)">
+        <span class="badge">{{ability.id}}</span> {{ability.name}}
+    </li>
+</ul>
+<div *ngIf="selectedAbility != null">
+    <h2>
+        {{selectedAbility.name | uppercase}} is my ability
+    </h2>
+    <button (click)="gotoDetail()">View Details</button>
+</div>

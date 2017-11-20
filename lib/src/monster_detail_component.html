@@ -1,0 +1,25 @@
+<div *ngIf="monster != null">
+    <h2>{{monster.name}} details!</h2>
+    <div>
+        <label>id: </label>{{monster.id}}</div>
+
+    <div>
+        <label>name: </label>
+        <input [(ngModel)]="monster.name" placeholder="name" />
+    </div>
+    <div>
+        <label>level: </label>
+        <input [(ngModel)]="monster.level" placeholder="level">
+    </div>
+
+    <div>
+        <label>health: </label>
+        <input [(ngModel)]="monster.health" placeholder="health">
+    </div>
+
+    <div>
+        <label>experienceGivenWhenDefeated: </label>
+        <input [(ngModel)]="hero.experienceGivenWhenDefeated" placeholder="experienceGivenWhenDefeated">
+    </div>
+    <button (click)="goBack()">Back</button>
+</div>

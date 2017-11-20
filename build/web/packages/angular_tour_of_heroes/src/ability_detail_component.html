@@ -1,0 +1,33 @@
+<div *ngIf="ability != null">
+    <h2>{{ability.name}} details!</h2>
+    <div>
+        <label>id: </label>{{ability.id}}</div>
+
+    <div>
+        <label>name: </label>
+        <input [(ngModel)]="ability.name" placeholder="name" />
+    </div>
+    <div>
+        <label>description: </label>
+        <input [(ngModel)]="ability.description" placeholder="description">
+    </div>
+
+    <!--
+    <div>
+        <label>Type: </label>
+        <input [(ngModel)]="ability.type" placeholder="type">
+    </div>
+    -->
+
+    <div>
+        <label>manaRequired: </label>
+        <input [(ngModel)]="ability.manaRequired" placeholder="manaRequired">
+    </div>
+
+    <div>
+        <label>damage: </label>
+        <input [(ngModel)]="ability.damage" placeholder="damage">
+    </div>
+
+    <button (click)="goBack()">Back</button>
+</div>

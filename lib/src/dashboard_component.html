@@ -1,0 +1,88 @@
+<h3>Choose your Hero</h3>
+<img id="head" src="http://www.passion-estampes.com/deco/affiches/bilal/affiche-bilal-sacha-100x50.jpg" alt="head">
+
+
+
+
+<div class="grid grid-pad">
+  <a *ngFor="let hero of heroes"
+     (click)="selectMyHero(hero,$event)"
+     (click)="getMyHeroAbilities(hero)"
+     class="col-1-4">
+    <div class="module hero" [class.heroSelected]="hero === myHeroSelected" >
+      <h4 >{{hero.name}}</h4>
+    </div>
+  </a>
+</div>
+
+<h3 *ngIf="heroSelectedBool==true">Details of {{myHeroSelected.name}} </h3>
+<div class="grid grid-pad">
+<div *ngIf="heroSelectedBool==true">
+        <div class="module ability">
+            <!--
+            <p>neededExperienceToLevelUp: {{myHeroSelected.neededExperienceToLevelUp}}</p>
+            <p>health: {{myHeroSelected.health}}</p>
+            -->
+            <p>level: {{heroLevelMap[myHeroSelected.name]}}</p>
+            <p>mana: {{heroManaMap[myHeroSelected.name]}}</p>
+            <p>gainedExperience: {{heroXpMap[myHeroSelected.name]}}</p>
+
+        </div>
+    </div>
+</div>
+
+<h3 *ngIf="heroSelectedBool==true">Abilities of {{myHeroSelected.name}} (please select one) </h3>
+<div class="grid grid-pad">
+    <a *ngFor="let ability of myHeroAbilities"
+       (click)="selectMyHeroAbility(ability)">
+        <div class="module ability" [class.abilitySelected]="ability === myAbilitySelected.name">
+            <h4>{{ability}}</h4>
+        </div>
+    </a>
+</div>
+
+<h3 *ngIf="abilitySelectedBool==true">Details of {{ability}} </h3>
+<div *ngIf="abilitySelectedBool==true" class="grid grid-pad h3">
+    <p>description: {{myAbilitySelected.description}}</p>
+    <p>Type: {{myAbilitySelected.Type}}</p>
+    <p>manaRequired: {{myAbilitySelected.manaRequired}}</p>
+    <p>damage: {{myAbilitySelected.damage}}</p>
+</div>
+
+<h3>Attack a Monster</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let monster of monsters"
+     (click)="selectMyMonster(monster)"
+     class="col-1-4">
+    <div class="module monster" [class.monsterSelected]="monster === myMonsterSelected">
+      <h4>{{monster.name}}</h4>
+    </div>
+  </a>
+</div>
+<br>
+<br>
+<br>
+
+<h3 *ngIf="monsterSelectedBool==true">Details of {{myMonsterSelected.name}} </h3>
+<div *ngIf="monsterSelectedBool==true" class="grid grid-pad">
+    <div class="">
+        <div class="module monster">
+            <!--
+            <p>level: {{myMonsterSelected.level}}</p>
+            -->
+            <p>health: {{myMonsterSelected.health}}</p>
+            <p>experienceGivenWhenDefeated: {{myMonsterSelected.experienceGivenWhenDefeated}}</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+<h3 *ngIf="heroSelectedBool==true && monsterSelectedBool==true && abilitySelectedBool==true">Fight between Hero {{myHeroSelected.name}} (ability chosen: {{myAbilitySelected.name}}) and Monster {{myMonsterSelected.name}} </h3>
+<div *ngIf="heroSelectedBool==true && monsterSelectedBool==true && abilitySelectedBool==true" class="grid grid-pad">
+    <button (click)="initFight(myHeroSelected, myMonsterSelected, myAbilitySelected)"> Initiate Fight </button>
+    <div *ngIf="fightBool == true">
+        <h4> FIGHT !!! </h4>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<h3>Top Heroes</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let hero of heroes" (click)="selectMyHero(hero)" class="col-1-4">
+    <div class="module hero">
+      <h4>{{hero.name}}</h4>
+    </div>
+  </a>
+</div>
+
+<h3>Top Monsters</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let monster of monsters" (click)="selectMyMonster(monster)" class="col-1-4">
+    <div class="module hero">
+      <h4>{{monster.name}}</h4>
+    </div>
+  </a>
+</div>
+
+<!--
+<h3>Hero.name abilities</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let ability of abilities" class="col-1-4">
+    <div class="module ability">
+      <h4>{{ability.name}}</h4>
+    </div>
+  </a>
+</div>
+-->
